@@ -1,0 +1,31 @@
+/**about.wxss**/
+
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  .app-main {
+    .iconfont {
+      font-size: 64px;
+      margin: 20rpx auto;
+      text-align: center;
+      color: #3576F6;
+
+    }
+    .txt-name,
+    .txt-version {
+      display: block;
+      margin: 16rpx 0;
+      text-align: center;
+    }
+    .txt-name {
+      font-size: 32rpx;
+      color: #666;
+    }
+    .txt-version {
+      font-size: 28rpx;
+      color: #999;
+    }
+  }
+}

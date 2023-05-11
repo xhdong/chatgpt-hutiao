@@ -1,0 +1,7 @@
+<!--login.wxml-->
+<view class="container">
+
+  <view class="btn-group">
+    <button class="btn-login" bindtap="handleLogin">微信登录</button>
+  </view>
+</view>

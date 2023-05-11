@@ -1,0 +1,49 @@
+<!--my.wxml-->
+<view class="app-container">
+  <view class="user-info">
+    <view class="user-info__left">
+      <view class="img-group">
+        <block wx:if="{{canIUseOpenData}}">
+          <open-data type="userAvatarUrl"></open-data>
+          <open-data type="userNickName"></open-data>
+        </block>
+        <block wx:else>
+          <image class="img-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        </block>
+      </view>
+      <view class="txt-group">
+        <block wx:if="{{canIUseOpenData}}">
+          <view class="txt-item txt-name">
+            <open-data type="userNickName"></open-data>
+            <view class="iconfont icon-huiyuan2"></view>
+          </view>
+        </block>
+        <view class="txt-item txt-name" wx:else>
+          {{userInfo.nickName}}
+          <view class="iconfont icon-huiyuan2"></view>
+        </view>
+        <text class="txt-item txt-id">ID：</text>
+        <!--<text class="txt-item txt-time">会员到期：</text>-->
+      </view>
+    </view>
+    <view class="user-info__right">
+      <!--<button class="btn-share" open-type="share" bindtap="handleShare">
+        <view class="iconfont icon-share"></view>
+        <text class="txt">分享</text>
+      </button>-->
+    </view>
+  </view>
+
+  <view class="menu-list">
+    <!--<view class="menu-list__item" bindtap="bindMemberViewTap">
+      <view class="iconfont icon-member-o"></view>
+      <text class="txt-name">开通会员畅享高速回答</text>
+      <view class="iconfont icon-arrow-right"></view>
+    </view>-->
+    <view class="menu-list__item" bindtap="bindAboutViewTap">
+      <view class="iconfont icon-users"></view>
+      <text class="txt-name">关于我们</text>
+      <view class="iconfont icon-arrow-right"></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,117 @@
+/**my.wxss**/
+.app-container {
+  font-family: 'Microsoft Yahei';
+  background: linear-gradient(to right,#3f87f5, #77cffd);
+  height: 100vh;
+  .user-info {
+    display: flex;
+    align-items: center;
+    padding: 28rpx 0;
+    &__left{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding-left: 28rpx;
+      .img-group {
+        width: 160rpx;
+        height: 160rpx;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 30rpx;
+        .img-avatar {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .txt-group {
+        padding: 20rpx 0;
+        .txt-item {
+          display: block;
+          line-height: 40rpx;
+          color: #fff;
+          &.txt-name {
+            font-size: 36rpx;
+            .iconfont {
+              display: inline-block;
+              margin-left: 10rpx;
+              color: #888;
+            }
+          }
+          &.txt-id {
+            font-size: 28rpx;
+          }
+          &.txt-time {
+            font-size: 28rpx;
+          }
+        }
+      }
+    }
+    &__right {
+      padding-left: 20rpx;
+      .btn-share {
+        width: 140rpx;
+        height: 60rpx;
+        line-height: 60rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28rpx;
+        padding: 0;
+        background-color: #3f87f5;
+        border: 1px solid #3f87f5;
+        border-radius: 16rpx 0 0 16rpx;
+        color: #fff;
+        .iconfont {
+          margin-right: 8rpx;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .menu-list {
+    height: calc(100vh - 250rpx);
+    overflow: hidden;
+    background-color: #F8F8F8;
+    padding: 20rpx 0;
+    border-radius: 20rpx 20rpx 0 0;
+    &__item {
+      padding: 28rpx;
+      margin: 20rpx;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      .iconfont {
+        width: 72rpx;
+        height: 72rpx;
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20rpx;
+        font-size: 20px;
+        &.icon-member-o {
+          background: linear-gradient(to bottom, rgba($color:#fb912d, $alpha: 0.7), rgba($color:#fb912d, $alpha: 1.0));
+        }
+        &.icon-users {
+          background: linear-gradient(to bottom, rgba($color:#366cff, $alpha: 0.7), rgba($color:#366cff, $alpha: 1.0));
+        }
+        &.icon-arrow-right {
+          color: #999;
+          justify-content: flex-end;
+          margin-right: 0;
+        }
+      }
+      .txt-name {
+        font-size: 28rpx;
+        color: #909090;
+        flex: 1;
+      }
+      .icon-arrow {
+        font-family: 'SumHei';
+        color: #999;
+      }
+    }
+  }
+}

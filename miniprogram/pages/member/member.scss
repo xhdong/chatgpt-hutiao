@@ -1,0 +1,200 @@
+/**member.wxss**/
+.app-container {
+  background: linear-gradient(to right,#3f87f5, #77cffd);
+}
+.app-top {
+  .user-info {
+    display: flex;
+    align-items: center;
+    padding: 28rpx;
+    .img-group {
+      width: 160rpx;
+      height: 160rpx;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 30rpx;
+      .img-avatar {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .txt-group {
+      padding: 20rpx 0;
+      .txt-item {
+        display: block;
+        line-height: 40rpx;
+        color: #fff;
+        &.txt-name {
+          font-size: 36rpx;
+          .iconfont {
+            display: inline-block;
+            margin-left: 10rpx;
+            color: #888;
+          }
+        }
+        &.txt-id {
+          font-size: 28rpx;
+        }
+        &.txt-time {
+          font-size: 28rpx;
+        }
+      }
+    }
+  }
+}
+.app-bottom {
+  padding: 20rpx 0;
+  background-color: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  
+  .vip-list {
+    display: flex;
+    padding: 0 20rpx;
+    margin-bottom: 20rpx;
+    &__item {
+      flex: 1;
+      border-radius: 16rpx;
+      border: 6rpx solid #fff;
+      margin: 10rpx;
+      padding: 10rpx;
+      box-shadow: 0 0 10rpx rgba($color: #000000, $alpha: 0.1);
+      &.active {
+        border-color: #ECC78A;
+        background-color: #FDF9EF;
+      }
+      .txt-item {
+        display: block;
+        text-align: center;
+        line-height: 48rpx;
+      }
+      .txt-name {
+        color: #805C2F;
+        font-size: 28rpx;
+      }
+      .txt-price {
+        color: #7D5525;
+        font-size: 48rpx;
+        margin: 10rpx 0;
+      }
+      .txt-price__old {
+        color: #D3A86D;
+        font-size: 28rpx;
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+          width: 50rpx;
+          height: 1px;
+          left: 50%;
+          right: 0;
+          background-color: #D3A86D;
+          top: 50%;
+          margin-left: -25rpx;
+        }
+      }
+      .txt-desc {
+        color: #999;
+        font-size: 28rpx;
+      }
+    }
+  }
+  
+  .btn-recharge {
+    width: 80%;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+    margin: 20rpx auto;
+    letter-spacing: 4rpx;
+    padding: 0;
+    color: #fff;
+    background: linear-gradient(to bottom, rgba($color:#fb912d, $alpha: 0.5), rgba($color:#fb912d, $alpha: 0.7));
+    border-radius: 40rpx;
+    animation: breathe 1.2s infinite;
+  }
+  
+  .benefits {
+    padding: 20rpx;
+    .title-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20rpx;
+      .txt-title {
+        font-size: 36rpx;
+        color: #333;
+        margin-right: 16rpx;
+      }
+      .txt-label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10rpx;
+        font-size: 24rpx;
+        height: 36rpx;
+        color: #fff;
+        border-radius: 8rpx;
+        background: linear-gradient(to bottom, rgba($color:#fb912d, $alpha: 0.7), rgba($color:#fb912d, $alpha: 1.0));
+      }
+    }
+    .benefits-list {
+      display: flex;
+      flex-wrap: wrap;
+      &__item {
+        display: flex;
+        align-items: center;
+        padding: 20rpx;
+        margin: 8rpx;
+        box-shadow: 0 0 10rpx rgba($color: #000000, $alpha: 0.1);
+        .icon-group {
+          width: 64rpx;
+          height: 64rpx;
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-right: 10rpx;
+          background: linear-gradient(to bottom, rgba($color:#366cff, $alpha: 0.7), rgba($color:#366cff, $alpha: 1.0));
+          .iconfont {
+            font-size: 18px;
+          }
+        }
+        .txt-group {
+          .txt-title, .txt-desc {
+            display: block;
+            line-height: 48rpx;
+          }
+          .txt-title {
+            font-size: 32rpx;
+            color: #333;
+          }
+          .txt-desc {
+            font-size: 28rpx;
+            color: #999;
+          }
+        }
+      }
+    }
+  }
+  
+  .txt-tip {
+    display: block;
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    color: #999;
+  }
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(.99);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(.99);
+  }
+}

@@ -1,0 +1,7 @@
+// payDialog.ts
+
+Page({
+  data: {
+    
+  },
+})
