@@ -7,7 +7,7 @@
 					<block wx:if="{{x.role === 'user'}}">
 						<view class="msg-list-item__left userinfo">
 							<view class="img-group">
-								<view class="iconfont icon-manual-cs"></view>
+								<view class="iconfont icon-cs"></view>
 							</view>
 							<view class="txt-group">
 								<text class="txt-msg">{{x.content}}</text>
