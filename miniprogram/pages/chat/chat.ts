@@ -3,7 +3,8 @@ const { completions } = require('../../api/chat')
 
 Page({
   data: {
-    msgLoading: !0,
+    loading: !0,
+    inputValue: '',  // 输入框的值
     // 聊天记录
     msgList: [
       {
@@ -11,11 +12,6 @@ Page({
         content: '你好呀，想问什么就问吧'
       }
     ] as any,
-    inputValue: '',  // 输入框的值
-    scrollIntoView: '',  // 滚动到指定位置
-    socketOpen: false,  // WebSocket连接状态
-    socketMsgQueue: [] as any,  // WebSocket消息队列
-    wsUrl: 'wss://example.com/ws'  // WebSocket服务器地址
   },
 
   onInputValue(e: any){
@@ -38,7 +34,7 @@ Page({
   // 发送用户消息
   sendUserMsg(question: string) {
     this.setData({
-      msgLoading: true
+      loading: true
     })
     const userMsg = {
       role: 'user',
@@ -48,7 +44,7 @@ Page({
     this.setData({
       msgList: this.data.msgList,
       inputValue: '',
-      msgLoading: false
+      loading: false
     })
   },
 
@@ -65,7 +61,7 @@ Page({
       this.setData({
         msgList: this.data.msgList,
         inputValue: '',
-        msgLoading: false
+        loading: false
       })
     } catch (error) {
       console.log(error)
