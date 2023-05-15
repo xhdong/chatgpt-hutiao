@@ -4,23 +4,23 @@
 		<view class="msg-list" scroll-with-animation="{{true}}">
 			<block wx:for="{{msgList}}" wx:for-item="x" wx:for-index="i" wx:key="i">
 				<view class="msg-list-item">
-					<block wx:if="{{x.my}}">
+					<block wx:if="{{x.role === 'user'}}">
 						<view class="msg-list-item__left userinfo">
 							<view class="img-group">
 								<view class="iconfont icon-manual-cs"></view>
 							</view>
 							<view class="txt-group">
-								<text class="txt-msg">{{x.msg}}</text>
+								<text class="txt-msg">{{x.content}}</text>
 							</view>
 						</view>
 					</block>
-					<block wx:if="{{!x.my}}">
+					<block wx:if="{{x.role === 'assistant'}}">
 						<view class="msg-list-item__right aiinfo">
 							<view class="img-group">
 								<view class="iconfont icon-robot"></view>
 							</view>
 							<view class="txt-group">
-								<text class="txt-msg" selectable="true" user-select="true">{{x.msg}}</text>
+								<text class="txt-msg" user-select="true" user-select="true">{{x.content}}</text>
 							</view>
 						</view>
 					</block>
