@@ -2,7 +2,7 @@
 
 interface IAppOption {
   globalData: {
-    baseURL?: 'http://192.168.105.25:8080/',
+    baseURL: 'https://tools-test-03/',
     userInfo?: WechatMiniprogram.UserInfo,
   }
   userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,
