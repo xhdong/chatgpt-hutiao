@@ -10,7 +10,11 @@
 								<view class="iconfont icon-cs"></view>
 							</view>
 							<view class="txt-group">
-								<text class="txt-msg">{{x.content}}</text>
+								<block wx:if="{{x.loading}}">
+									<view class="iconfont icon-loading"></view>
+									<text class="txt-msg">思考中，请稍后...</text>
+								</block>
+								<text wx:if="{{!x.loading}}" class="txt-msg">{{x.content}}</text>
 							</view>
 						</view>
 					</block>
@@ -20,7 +24,11 @@
 								<view class="iconfont icon-robot"></view>
 							</view>
 							<view class="txt-group">
-								<text class="txt-msg" user-select="true" user-select="true">{{x.content}}</text>
+								<block wx:if="{{x.loading}}">
+									<view class="iconfont icon-loading"></view>
+									<text class="txt-msg">思考中，请稍后...</text>
+								</block>
+								<text wx:if="{{!x.loading}}" class="txt-msg" user-select="true">{{x.content}}</text>
 							</view>
 						</view>
 					</block>
@@ -32,8 +40,7 @@
 		<input class="form-control" bindinput="onInputValue" value="{{inputValue}}" placeholder="你想和我聊点什么？" bindconfirm="handleSend"/>
 		<button class="{{inputValue === '' ? 'btn-send disabled' : 'btn-send'}}"
 		bindtap="handleSend" disabled="{{inputValue === ''}}">
-			<!--<view class="iconfont icon-loading" wx:if="{{msgLoading}}"></view>-->
-			<view class="iconfont icon-send"></view>
+			<view class="{{loading ? 'iconfont icon-loading' : 'iconfont icon-send'}}"></view>
 		</button>
 	</view>
 </view>
