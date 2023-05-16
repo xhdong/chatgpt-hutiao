@@ -10,7 +10,8 @@ Page({
       {
         loading: false,
         role: 'assistant',
-        content: '你好呀，想问什么就问吧'
+        content: '你好呀，想问什么就问吧',
+        showOperate: false,
       }
     ] as any,
   },
@@ -54,7 +55,8 @@ Page({
       let aiMsg = {
         loading: true,
         role: 'assistant',
-        content: ''
+        content: '',
+        showOperate: true
       }
       this.data.msgList.push(aiMsg)
       this.setData({
@@ -78,4 +80,20 @@ Page({
       })
     }
   },
+
+  // 复制
+  handleCopy(e: any) {
+    const { title } = e.currentTarget.dataset
+    //复制文本
+    wx.setClipboardData({
+      data: title,
+      success() {
+        wx.showToast({
+          title: '复制成功~',
+          icon: "success",
+          mask: true //是否设置点击蒙版，防止点击穿透
+        })
+      }
+    })
+  }
 })

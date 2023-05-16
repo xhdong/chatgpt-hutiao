@@ -27,11 +27,20 @@
         border-radius: 10rpx;
         font-size: 14px;
         padding: 16rpx 20rpx;
+        line-height: 64rpx;
         white-space: pre-wrap;
-        display: flex;
-        align-items: center;
         .iconfont {
           margin-right: 10rpx;
+        }
+        &__content {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          .iconfont {
+            &.icon-loading {
+              animation: loading 1s steps(8) infinite;
+            }
+          }
         }
       }
     }
@@ -54,6 +63,19 @@
         background-color: #fff;
         white-space: pre-wrap;
         word-break: break-all;
+      }
+      .opt-group {
+        border-top: 1px solid #e1e1e1;
+        &__copy {
+          display: flex;
+          align-items: center;
+        }
+        .iconfont, .txt-copy {
+          color: #999;
+        }
+        .txt-copy {
+          font-size: 14px;
+        }
       }
     }
   }
@@ -93,5 +115,14 @@
       font-size: 18px;
       color: #fff;
     }
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

@@ -24,11 +24,19 @@
 								<view class="iconfont icon-robot"></view>
 							</view>
 							<view class="txt-group">
-								<block wx:if="{{x.loading}}">
-									<view class="iconfont icon-loading"></view>
-									<text class="txt-msg">思考中，请稍后...</text>
-								</block>
-								<text wx:if="{{!x.loading}}" class="txt-msg" user-select="true">{{x.content}}</text>
+								<view class="txt-group__content">
+									<block wx:if="{{x.loading}}">
+										<view class="iconfont icon-loading"></view>
+										<text class="txt-msg">思考中，请稍后...</text>
+									</block>
+									<text wx:if="{{!x.loading}}" class="txt-msg" user-select="true">{{x.content}}</text>
+								</view>
+								<view class="opt-group" wx:if="{{x.showOperate && x.content !== ''}}">
+									<view class="opt-group__copy" data-title="{{x.content}}" bindtap="handleCopy">
+										<view class="iconfont icon-copy"></view>
+										<text class="txt-copy">复制</text>
+									</view>
+								</view>
 							</view>
 						</view>
 					</block>
