@@ -1,16 +1,16 @@
 // my.ts
+const app = getApp();
+const appName = app.globalData.appName;
 
 Page({
   data: {
+    appName,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
-  },
-  handleShare(e: any) {
-    console.log(e)
   },
   // 事件处理函数
   bindMemberViewTap() {
@@ -19,7 +19,6 @@ Page({
     })
   },
   bindAboutViewTap() {
-    console.log(11)
     wx.navigateTo({
       url: '../about/about',
     })
@@ -55,16 +54,17 @@ Page({
     })
   },
   onShareAppMessage() {
+    const that = this
     const promise = new Promise(resolve => {
       setTimeout(() => {
         resolve({
-          title: '伙力智能聊天机器人'
+          title: that.data.appName
         })
       }, 2000)
     })
     return {
-      title: '伙力智能聊天机器人',
-      path: '/page/chat?id=123',
+      title: that.data.appName,
+      path: '/pages/chat/chat',
       promise 
     }
   }

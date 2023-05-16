@@ -22,15 +22,15 @@
           {{userInfo.nickName}}
           <view class="iconfont icon-huiyuan2"></view>
         </view>
-        <text class="txt-item txt-id">ID：</text>
-        <!--<text class="txt-item txt-time">会员到期：</text>-->
+        <!--<text class="txt-item txt-id">ID：</text>
+        <text class="txt-item txt-time">会员到期：</text>-->
       </view>
     </view>
     <view class="user-info__right">
-      <!--<button class="btn-share" open-type="share" bindtap="handleShare">
+      <button class="btn-share" open-type="share">
         <view class="iconfont icon-share"></view>
         <text class="txt">分享</text>
-      </button>-->
+      </button>
     </view>
   </view>
 

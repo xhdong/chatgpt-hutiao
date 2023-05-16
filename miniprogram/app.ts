@@ -3,7 +3,8 @@
 App<IAppOption>({
   globalData: {
     baseURL: 'https://tools-test-03/',
-    version: '1.0'
+    version: '1.0',
+    appName: '虎跳智能聊天机器人',
   },
   onLaunch() {
     // 展示本地存储能力
