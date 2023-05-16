@@ -30,6 +30,9 @@
         white-space: pre-wrap;
         display: flex;
         align-items: center;
+        .iconfont {
+          margin-right: 10rpx;
+        }
       }
     }
     &__left {

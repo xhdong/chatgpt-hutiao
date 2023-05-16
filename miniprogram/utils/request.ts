@@ -38,7 +38,7 @@ export function request(options: any) {
         }
         wx.showToast({
           title: "网络连接超时",
-          icon: 'none',
+          icon: 'error',
           duration: 3000,
         })
         reject(res);

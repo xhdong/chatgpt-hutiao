@@ -4,7 +4,7 @@ export function completions(data: any) {
     url: "chat/v1/completions",
     method: "POST",
     data,
-    loading: true
+    loading: false
   }
   return request(options);
 }
