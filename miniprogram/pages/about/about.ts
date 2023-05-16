@@ -1,7 +1,8 @@
 // about.ts
-
+const app = getApp();
+const version = app.globalData.version;
 Page({
   data: {
-    version: '1.0'
+    version
   },
 })

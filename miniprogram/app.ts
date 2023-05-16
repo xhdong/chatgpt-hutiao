@@ -2,7 +2,8 @@
 
 App<IAppOption>({
   globalData: {
-    baseURL: 'https://tools-test-03/'
+    baseURL: 'https://tools-test-03/',
+    version: '1.0'
   },
   onLaunch() {
     // 展示本地存储能力

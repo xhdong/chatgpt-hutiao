@@ -2,7 +2,7 @@
 <view class="app-container">
   <view class="app-main">
     <view class="iconfont icon-robot"></view>
-    <text class="txt-name">伙力智能聊天AI机器人</text>
+    <text class="txt-name">虎跳智能聊天AI机器人</text>
     <text class="txt-version">版本{{version}}</text>
   </view>
 </view>
