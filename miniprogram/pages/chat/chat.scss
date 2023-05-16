@@ -1,12 +1,25 @@
 .app-container {
   height: 100vh;
   background-color: #F2F3F7;
+  .app-main {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    &__view {
+      height: calc(100vh - 120rpx);
+    }
+  }
 }
 .msg-list {
   padding: 20rpx;
-  height: calc(100vh - 160rpx);
   &-item {
-    margin-bottom: 10px;
+    margin-top: 10px;
+    &:first-child {
+      margin-top: 0;
+    }
     &__left,
     &__right {
       display: flex;

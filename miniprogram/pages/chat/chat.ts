@@ -14,6 +14,7 @@ Page({
         showOperate: false,
       }
     ] as any,
+    scrollTop: 0
   },
 
   onInputValue(e: any){
@@ -73,6 +74,7 @@ Page({
         inputValue: '',
         loading: false
       })
+      this.calcScrollTop()
     } catch (error) {
       console.log(error)
       this.setData({
@@ -95,5 +97,23 @@ Page({
         })
       }
     })
+  },
+
+  //计算 scrollTop，使页面滚动到底部
+  calcScrollTop() {
+    let that = this;
+    let height
+    const top = this.data.scrollTop
+    let query = wx.createSelectorQuery().in(this)
+    query.select('.msg-list').boundingClientRect(function (rect) {
+      height = rect.height
+      wx.pageScrollTo({
+        scrollTop: height - top,
+        duration: 100 // 滑动速度
+      })
+      that.setData({
+        scrollTop: height - top
+      });
+    }).exec();
   }
 })

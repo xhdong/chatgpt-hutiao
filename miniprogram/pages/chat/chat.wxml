@@ -1,49 +1,51 @@
 <!--chat.wxml-->
 <view class="app-container">
-	<scroll-view scroll-with-animation="{{true}}" scroll-y="true">
-		<view class="msg-list" scroll-with-animation="{{true}}">
-			<block wx:for="{{msgList}}" wx:for-item="x" wx:for-index="i" wx:key="i">
-				<view class="msg-list-item">
-					<block wx:if="{{x.role === 'user'}}">
-						<view class="msg-list-item__left userinfo">
-							<view class="img-group">
-								<view class="iconfont icon-cs"></view>
-							</view>
-							<view class="txt-group">
-								<block wx:if="{{x.loading}}">
-									<view class="iconfont icon-loading"></view>
-									<text class="txt-msg">思考中，请稍后...</text>
-								</block>
-								<text wx:if="{{!x.loading}}" class="txt-msg">{{x.content}}</text>
-							</view>
-						</view>
-					</block>
-					<block wx:if="{{x.role === 'assistant'}}">
-						<view class="msg-list-item__right aiinfo">
-							<view class="img-group">
-								<view class="iconfont icon-robot"></view>
-							</view>
-							<view class="txt-group">
-								<view class="txt-group__content">
+	<view class="app-main">
+		<scroll-view class="app-main__view" scroll-with-animation="{{true}}" scroll-y="true"  scroll-top="{{scrollTop}}">
+			<view class="msg-list" scroll-with-animation="{{true}}">
+				<block wx:for="{{msgList}}" wx:for-item="x" wx:for-index="i" wx:key="i">
+					<view class="msg-list-item">
+						<block wx:if="{{x.role === 'user'}}">
+							<view class="msg-list-item__left userinfo">
+								<view class="img-group">
+									<view class="iconfont icon-cs"></view>
+								</view>
+								<view class="txt-group">
 									<block wx:if="{{x.loading}}">
 										<view class="iconfont icon-loading"></view>
 										<text class="txt-msg">思考中，请稍后...</text>
 									</block>
-									<text wx:if="{{!x.loading}}" class="txt-msg" user-select="true">{{x.content}}</text>
+									<text wx:if="{{!x.loading}}" class="txt-msg">{{x.content}}</text>
 								</view>
-								<view class="opt-group" wx:if="{{x.showOperate && x.content !== ''}}">
-									<view class="opt-group__copy" data-title="{{x.content}}" bindtap="handleCopy">
-										<view class="iconfont icon-copy"></view>
-										<text class="txt-copy">复制</text>
+							</view>
+						</block>
+						<block wx:if="{{x.role === 'assistant'}}">
+							<view class="msg-list-item__right aiinfo">
+								<view class="img-group">
+									<view class="iconfont icon-robot"></view>
+								</view>
+								<view class="txt-group">
+									<view class="txt-group__content">
+										<block wx:if="{{x.loading}}">
+											<view class="iconfont icon-loading"></view>
+											<text class="txt-msg">思考中，请稍后...</text>
+										</block>
+										<text wx:if="{{!x.loading}}" class="txt-msg" user-select="true">{{x.content}}</text>
+									</view>
+									<view class="opt-group" wx:if="{{x.showOperate && x.content !== ''}}">
+										<view class="opt-group__copy" data-title="{{x.content}}" bindtap="handleCopy">
+											<view class="iconfont icon-copy"></view>
+											<text class="txt-copy">复制</text>
+										</view>
 									</view>
 								</view>
 							</view>
-						</view>
-					</block>
-				</view>
-			</block>
-		</view>
-	</scroll-view>
+						</block>
+					</view>
+				</block>
+			</view>
+		</scroll-view>
+	</view>
 	<view class="msg-operate">
 		<input class="form-control" bindinput="onInputValue" value="{{inputValue}}" placeholder="你想和我聊点什么？" bindconfirm="handleSend"/>
 		<button class="{{inputValue === '' ? 'btn-send disabled' : 'btn-send'}}"
