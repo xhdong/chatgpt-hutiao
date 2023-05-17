@@ -1,5 +1,4 @@
-const app = getApp();
-const baseURL = app.globalData.baseURL;
+const { HOST } = require('./constant')
 const header = {
   'content-type': "application/json"
 }
@@ -14,7 +13,7 @@ export function request(options: any) {
  
   return new Promise((resolve, reject) => {
     wx.request({
-      url: `${baseURL}${options.url}` || ``,
+      url: `${HOST}${options.url}` || ``,
       data: options.data || {},
       method: options.method || 'POST',
       header,

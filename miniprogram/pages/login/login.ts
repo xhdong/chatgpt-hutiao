@@ -1,5 +1,5 @@
 // login.ts
-const { login } = require('../../api/login')
+// const { login } = require('../../api/login')
 Page({
   data: {
   },
