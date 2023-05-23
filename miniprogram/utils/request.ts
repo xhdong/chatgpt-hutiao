@@ -1,6 +1,8 @@
 const { HOST } = require('./constant')
+const token = wx.getStorageSync('token') || ''
 const header = {
-  'content-type': "application/json"
+  'content-type': "application/json",
+  t: token
 }
 
 export function request(options: any) {
