@@ -2,5 +2,6 @@
   "navigationBarTitleText": "开通会员",
   "usingComponents": {
     "pay-dialog": "../../components/member/payDialog"
-  }
+  },
+  "lazyCodeLoading": "requiredComponents"
 }
