@@ -4,7 +4,7 @@ export function login(data: any) {
     url: `user/v1/login`,
     method: "POST",
     data,
-    loading: true
+    loading: false
   }
   return request(options);
 }

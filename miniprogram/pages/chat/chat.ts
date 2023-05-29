@@ -62,6 +62,7 @@ Page({
       this.data.msgList.push(aiMsg)
       this.setData({
         msgList: this.data.msgList,
+        loading: true,
       })
       const res = (await completions(params)).data || {}
       const { choices } = res

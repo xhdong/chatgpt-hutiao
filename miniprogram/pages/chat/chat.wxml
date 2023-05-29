@@ -48,8 +48,8 @@
 	</view>
 	<view class="msg-operate">
 		<input class="form-control" bindinput="onInputValue" value="{{inputValue}}" placeholder="你想和我聊点什么？" bindconfirm="handleSend"/>
-		<button class="{{inputValue === '' ? 'btn-send disabled' : 'btn-send'}}"
-		bindtap="handleSend" disabled="{{inputValue === ''}}">
+		<button class="{{inputValue === '' || loading ? 'btn-send disabled' : 'btn-send'}}"
+		bindtap="handleSend" disabled="{{inputValue === '' || loading}}">
 			<view class="{{loading ? 'iconfont icon-loading' : 'iconfont icon-send'}}"></view>
 		</button>
 	</view>
