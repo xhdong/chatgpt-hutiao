@@ -1,4 +1,5 @@
 // chat.ts
+const appChat = getApp()
 const { completions } = require('../../api/chat')
 
 Page({
@@ -116,5 +117,11 @@ Page({
         scrollTop: height - top
       });
     }).exec();
+  },
+  onLoad() {
+    let token = wx.getStorageSync("token");
+    if (!token || token == '') {
+      appChat.login()
+    }
   }
 })

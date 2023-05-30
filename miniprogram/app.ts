@@ -1,15 +1,15 @@
 // app.ts
-const { login } = require('api/login')
+const { HOST } = require('utils/constant')
 
 App({
   globalData: {
     isAuthSetting: false,
     version: '1.0',
     appName: '虎跳智能聊天机器人',
-    userInfo: {}
+    userInfo: {},
+    token: ''
   },
   onLaunch() {
-    this.login()
     this.getSetting()
   },
 
@@ -22,11 +22,9 @@ App({
       wx.getSetting({
         withSubscriptions: true,
         success (res) {
-          console.log(res)
           if (res.authSetting['scope.userInfo']) {
             wx.getUserInfo({
               success (resInfo) {
-                console.log(resInfo)
                 const {signature, rawData, encryptedData, iv} = resInfo
                 wx.setStorageSync('signature', signature)
                 wx.setStorageSync('rawData', rawData)
@@ -57,21 +55,36 @@ App({
 
   // 登录
   login() {
-    wx.login({
-      async success(res) {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        if (res.code) {
-          try {
-            const { token } = (await login({token: res.code})).data || {}
-            wx.setStorageSync('token', token)
-          } catch (error) {
-            console.log(error)
+    const that = this
+    return new Promise(function(resolve, reject) {
+      wx.login({
+        success(res) {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          if (res.code) {
+            wx.request({
+              url: `${HOST}user/v1/login`, //This value for demonstration purposes only is not a real API URL.
+              data: {
+                token: res.code
+              },
+              method: 'POST',
+              header: {
+                'content-type': 'application/json' // Default value
+              },
+              success (res: any) {
+                const { token } = res.data.data || ''
+                wx.setStorageSync('token', token)
+                //获取用户信息成功
+                that.globalData.token = res.data;
+                resolve(res.data);
+              }
+            })
           }
+        },
+        fail: err => {
+          console.log(err);
+          reject(err);
         }
-      },
-      fail: err => {
-        console.log(err);
-      }
+      })
     })
-  }
+  },
 })

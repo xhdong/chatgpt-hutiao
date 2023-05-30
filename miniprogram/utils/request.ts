@@ -1,11 +1,11 @@
 const { HOST } = require('./constant')
-const token = wx.getStorageSync('token') || ''
 const header = {
   'content-type': "application/json",
-  t: token
+  t: wx.getStorageSync('token')
 }
+console.log(wx.getStorageSync('token'), '2----')
 
-export function request(options: any) {
+export async function request(options: any) {
   if (options.loading) {
     wx.showLoading({
       title: '加载中',
@@ -13,14 +13,14 @@ export function request(options: any) {
     })
   }
  
-  return new Promise((resolve, reject) => {
+  return await new Promise((resolve, reject) => {
     wx.request({
       url: `${HOST}${options.url}` || ``,
       data: options.data || {},
       method: options.method || 'POST',
       header,
       responseType: options.responseType || "",
-      timeout:15000,
+      timeout: 20000,
       success (res: any) {
         if (options.loading) {
           wx.hideLoading()
