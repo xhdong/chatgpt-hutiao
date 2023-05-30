@@ -3,7 +3,6 @@ const header = {
   'content-type': "application/json",
   t: wx.getStorageSync('token')
 }
-console.log(wx.getStorageSync('token'), '2----')
 
 export async function request(options: any) {
   if (options.loading) {
@@ -20,18 +19,22 @@ export async function request(options: any) {
       method: options.method || 'POST',
       header,
       responseType: options.responseType || "",
-      timeout: 20000,
+      // timeout: 20000,
       success (res: any) {
-        if (options.loading) {
-          wx.hideLoading()
+        if(res.data.code === 99999) {
+          wx.showToast({
+            title: "网络连接超时",
+            icon: 'error',
+            duration: 3000,
+          })
+          reject(res);
+        } else {
+          if (options.loading) {
+            wx.hideLoading()
+          }
+          //把请求到的数据发到引用请求的地方
+          resolve(res.data);
         }
-        //根据自己的接口返回值进行判断
-        if (res.data.code != 20000) {
-          // 重新登陆
-          return false;
-        }
-        //把请求到的数据发到引用请求的地方
-        resolve(res.data);
       },
       fail (res: any) {
         if (options.loading) {
@@ -45,5 +48,7 @@ export async function request(options: any) {
         reject(res);
       }
     })
+  }).catch(err => {
+    console.log(err)
   })
 };
